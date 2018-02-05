@@ -32,7 +32,7 @@ class JItemActivity : AppCompatActivity() {
         AlertDialog.Builder(this)
                 .setTitle("Atenção")
                 .setMessage("O campo 'tarefa' é obrigatório!")
-                .setPositiveButton(android.R.string.ok) { dialog, i -> dialog.dismiss() }
+                .setPositiveButton(android.R.string.ok) { dialog, _ -> dialog.dismiss() }
                 .show()
     }
 

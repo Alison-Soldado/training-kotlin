@@ -12,10 +12,6 @@ import br.concrete.trainingkotlin.R
 import org.junit.Rule
 import org.junit.Test
 
-/**
- * @author Alison Soldado
- */
-
 @SmallTest
 class JHomeActivityTest {
 

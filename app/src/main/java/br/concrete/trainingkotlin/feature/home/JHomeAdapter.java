@@ -9,10 +9,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.concrete.trainingkotlin.data.model.Item;
 import br.concrete.trainingkotlin.R;
+import br.concrete.trainingkotlin.data.model.Item;
 
-import static br.concrete.trainingkotlin.feature.home.Api.*;
+import static br.concrete.trainingkotlin.feature.home.Api.fetchDefaultItems;
 
 public class JHomeAdapter extends RecyclerView.Adapter<JHomeAdapter.ViewHolder> {
 
