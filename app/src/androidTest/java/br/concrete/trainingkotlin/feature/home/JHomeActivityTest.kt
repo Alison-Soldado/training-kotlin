@@ -27,45 +27,47 @@ class JHomeActivityTest {
         const val EMPTY_STRING = ""
     }
 
-
     @Rule
     @JvmField var mActivityRule =
             ActivityTestRule(JHomeActivity::class.java, false, true)
 
     @Test
-    fun shouldCreateItemCorrectly() {
+    fun givenTitleAndDescription_WhenClickButtonAdd_ThenShowTitleAndDescriptionInList() {
+        // Arrange
         mActivityRule.launchActivity(Intent())
-
+        // Act
         onView(withId(R.id.add_item)).perform(click())
         onView(withId(R.id.task)).perform(replaceText(TITLE))
         onView(withId(R.id.description)).perform(replaceText(DESCRIPTION))
         onView(withId(R.id.add_item)).perform(click())
-
+        // Assert
         onView(withText(TITLE)).check(matches(isDisplayed()))
         onView(withText(DESCRIPTION)).check(matches(isDisplayed()))
     }
 
     @Test
-    fun shouldTryCreateItemWithEmptyTask() {
+    fun givenTitleEmpty_WhenClickButtonAdd_ThenShowDialogWarning() {
+        // Arrange
         mActivityRule.launchActivity(Intent())
-
+        // Act
         onView(withId(R.id.add_item)).perform(click())
         onView(withId(R.id.task)).perform(replaceText(EMPTY_STRING))
         onView(withId(R.id.description)).perform(replaceText(DESCRIPTION))
         onView(withId(R.id.add_item)).perform(click())
-
+        // Assert
         onView(withText(DIALOG_TITLE)).check(matches(isDisplayed()))
     }
 
     @Test
-    fun shouldTryCreateItemWithEmptyDescription() {
+    fun givenDescriptionEmpty_WhenClickButtonAdd_ThenShowItemInListWithDescriptionDefault() {
+        // Arrange
         mActivityRule.launchActivity(Intent())
-
+        // Act
         onView(withId(R.id.add_item)).perform(click())
         onView(withId(R.id.task)).perform(replaceText(TITLE))
         onView(withId(R.id.description)).perform(replaceText(EMPTY_STRING))
         onView(withId(R.id.add_item)).perform(click())
-
+        // Assert
         onView(withText(TITLE)).check(matches(isDisplayed()))
         onView(withText(DEFAULT_EMPTY_DESCRIPTION)).check(matches(isDisplayed()))
     }
