@@ -18,8 +18,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="br.concrete.trainingkotlin.feature.item.JItemActivity"
-            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".feature.item.JItemActivity"
+            android:windowSoftInputMode="adjustResize"/>
 
     </application>
 
