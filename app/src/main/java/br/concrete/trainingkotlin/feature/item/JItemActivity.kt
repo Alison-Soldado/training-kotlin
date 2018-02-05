@@ -7,12 +7,9 @@ import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import br.concrete.trainingkotlin.R
 import br.concrete.trainingkotlin.data.model.Item
-import br.concrete.trainingkotlin.feature.home.JHomeActivity.ITEM_EXTRAS
+import br.concrete.trainingkotlin.feature.home.JHomeActivity.Companion.ITEM_EXTRAS
 import kotlinx.android.synthetic.main.activity_item.*
 
-/**
- * @author Alison Soldado
- */
 class JItemActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,7 +41,7 @@ class JItemActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun getFormItem(): Item {
+    private fun getFormItem() : Item {
         return Item(
                 task.text.toString(),
                 if (description.text.toString().isEmpty()) {

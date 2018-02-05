@@ -14,10 +14,6 @@ import br.concrete.trainingkotlin.R;
 
 import static br.concrete.trainingkotlin.feature.home.Api.*;
 
-/**
- * @author Lucas Campos
- */
-
 public class JHomeAdapter extends RecyclerView.Adapter<JHomeAdapter.ViewHolder> {
 
     private List<Item> items = fetchDefaultItems();

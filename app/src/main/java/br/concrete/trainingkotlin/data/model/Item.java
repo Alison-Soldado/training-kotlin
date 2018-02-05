@@ -3,10 +3,6 @@ package br.concrete.trainingkotlin.data.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-/**
- * @author Lucas Campos
- */
-
 public final class Item implements Parcelable {
 
     private final String task;
