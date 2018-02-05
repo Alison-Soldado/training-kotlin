@@ -22,24 +22,36 @@ class JItemActivity : AppCompatActivity() {
     }
 
     private fun setUpScreen() {
-        add_item!!.setOnClickListener {
-            if (task!!.text.toString().isEmpty()) {
-                AlertDialog.Builder(this)
-                        .setTitle("Atenção")
-                        .setMessage("O campo 'tarefa' é obrigatório!")
-                        .setPositiveButton(android.R.string.ok) { dialog, i -> dialog.dismiss() }
-                        .show()
+        add_item.setOnClickListener {
+            if (task.text.toString().isEmpty()) {
+                showAlertWarning()
             } else {
-                setResult(Activity.RESULT_OK, Intent().putExtra(ITEM_EXTRAS, getFormItem()))
-                finish()
+                returnItem()
             }
         }
     }
 
+    private fun showAlertWarning() {
+        AlertDialog.Builder(this)
+                .setTitle("Atenção")
+                .setMessage("O campo 'tarefa' é obrigatório!")
+                .setPositiveButton(android.R.string.ok) { dialog, i -> dialog.dismiss() }
+                .show()
+    }
+
+    private fun returnItem() {
+        setResult(Activity.RESULT_OK, Intent().putExtra(ITEM_EXTRAS, getFormItem()))
+        finish()
+    }
+
     private fun getFormItem(): Item {
         return Item(
-                task!!.text.toString(),
-                if (description!!.text.toString().isEmpty()) "-" else description!!.text.toString()
+                task.text.toString(),
+                if (description.text.toString().isEmpty()) {
+                    "-"
+                } else {
+                    description.text.toString()
+                }
         )
     }
 }
