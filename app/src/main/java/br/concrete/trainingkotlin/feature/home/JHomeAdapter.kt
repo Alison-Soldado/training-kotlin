@@ -26,10 +26,12 @@ class JHomeAdapter : RecyclerView.Adapter<JHomeAdapter.ViewHolder>() {
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val task = itemView.task
+        private val description = itemView.description
 
         fun bindView(item: Item) {
-            itemView.task.text = item.task
-            itemView.description.text = item.description
+            task.text = item.task
+            description.text = item.description
         }
     }
 }
