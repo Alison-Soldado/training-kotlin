@@ -34,15 +34,16 @@ class JHomeActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
-        recycler_view.adapter = jHomeAdapter
-        recycler_view.layoutManager = LinearLayoutManager(this)
+        with(recycler_view) {
+            adapter = jHomeAdapter
+            layoutManager = LinearLayoutManager(this@JHomeActivity)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == ITEM_ACTIVITY_CODE &&
-                resultCode == RESULT_OK &&
-                data != null && data.hasExtra(ITEM_EXTRAS)) {
+                resultCode == RESULT_OK && data?.hasExtra(ITEM_EXTRAS) == true) {
 
             jHomeAdapter.addItem(data.getParcelableExtra(ITEM_EXTRAS))
         }
